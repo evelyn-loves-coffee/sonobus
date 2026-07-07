@@ -29,5 +29,9 @@ public:
 private:
     VersionInfo() = default;
 
+    VersionInfo(const String& versionString,
+                const String& releaseNotes,
+                std::vector<Asset> assets);
+
     static std::unique_ptr<VersionInfo> fetch (const String&);
 };

@@ -5,6 +5,12 @@
 #include "JuceHeader.h"
 #include "VersionInfo.h"
 
+VersionInfo::VersionInfo (const String& versionString, const String& releaseNotes, std::vector<Asset> assets)
+    : versionString (versionString),
+      releaseNotes (releaseNotes),
+      assets (std::move (assets))
+{}
+
 std::unique_ptr<VersionInfo> VersionInfo::fetchFromUpdateServer (const String& versionString)
 {
     return fetch ("tags/" + versionString);
